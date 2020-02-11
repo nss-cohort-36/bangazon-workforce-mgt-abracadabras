@@ -5,6 +5,7 @@ from hrapp.models import Employee
 
 def employee_list(request):
     if request.method == 'GET':
+        #Might possibly have to move this path to its own file and gitignore it. TBD.
         with sqlite3.connect("/Users/joeshep/workspace/python/bangazon-workforce-boilerplate/bangazonworkforcemgt/db.sqlite3") as conn:
             conn.row_factory = sqlite3.Row
             db_cursor = conn.cursor()

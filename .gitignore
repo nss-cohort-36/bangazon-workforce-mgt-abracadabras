@@ -3,6 +3,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+hrapp/views/connection.py
 
 # Installer logs
 pip-log.txt
