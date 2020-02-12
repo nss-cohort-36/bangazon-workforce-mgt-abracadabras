@@ -30,7 +30,7 @@ def computer_list(request):
                 computer.make = row['make']
                 computer.purchase_date = row['purchase_date']
                 computer.decommission_date = row['decommission_date']
-                computer.department = row['department']
+                # computer.department = row['department']
 
                 all_computers.append(computer)
 
