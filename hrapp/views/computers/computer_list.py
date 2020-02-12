@@ -17,8 +17,6 @@ def computer_list(request):
                 e.make,
                 e.purchase_date,
                 e.decommission_date,
-                e.is_supervisor
-            from hrapp_computer e
             """)
 
             all_computers = []
