@@ -7,7 +7,7 @@
         "last_name": "Jackson",
         "start_date": "2020/02/12",
         "is_supervisor": true,
-        // "department.id": "accounting",
+        // "department.id": "accounting"
       }
     },
 
@@ -19,7 +19,7 @@
           "last_name": "Kurtz",
           "start_date": "2020/02/11",
           "is_supervisor": false,
-        //   "department": "accounting",
+        //   "department": "sales"
         }
       }
  

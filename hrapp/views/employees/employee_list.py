@@ -7,7 +7,7 @@ from ..connection import Connection
 def employee_list(request):
     if request.method == 'GET':
         #Might possibly have to move this path to its own file and gitignore it. TBD.
-        with sqlite3.connect("/users/blagg/workspace/groupProjects/bangazon-workforce-mgt-abracadabras/db.sqlite3") as conn:
+        with sqlite3.connect(Connection.db_path) as conn:
             conn.row_factory = sqlite3.Row
             db_cursor = conn.cursor()
 
