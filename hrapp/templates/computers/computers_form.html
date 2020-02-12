@@ -9,7 +9,7 @@
     <h1>Inventory Computers</h1>
 
 
-    <form action="{% url 'libraryapp:computers' %}" method="post">
+    <form action="{% url 'hrapp:computers' %}" method="post">
       {% csrf_token %}
       <fieldset>
           <label for="make">Make: </label>
@@ -24,13 +24,9 @@
           <input id="decommission_date" type="number" name="decommission_date">
       </fieldset>
       <fieldset>
-          <label for="isbn">ISBN: </label>
-          <input id="isbn" type="text" name="isbn">
-      </fieldset>
-      <fieldset>
           <label for="location">Computer: </label>
           <select id="location" type="text" name="location">
-                {% for computer in all_libraries %}
+                {% for computer in all_computer %}
                     <option value="{{ computer.id }}">{{ computer.make }}</option>
                 {% endfor %}
           </select>
