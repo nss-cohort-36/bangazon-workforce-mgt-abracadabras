@@ -6,17 +6,18 @@ from hrapp.models import Computer
 def computer_list(request):
     if request.method == 'GET':
         #Might possibly have to move this path to its own file and gitignore it. TBD.
-        with sqlite3.connect("/Users/joeshep/workspace/python/bangazon-workforce-boilerplate/bangazonworkforcemgt/db.sqlite3") as conn:
+        with sqlite3.connect("/Users/Pariah/workspace/bangazon-workforce-mgt-abracadabras/db.sqlite3") as conn:
             conn.row_factory = sqlite3.Row
             db_cursor = conn.cursor()
 
             # TODO: Add to query: e.department,
             db_cursor.execute("""
             select
-                e.id,
-                e.make,
-                e.purchase_date,
-                e.decommission_date,
+                c.id,
+                c.make,
+                c.purchase_date,
+                c.decommission_date
+            from hrapp_computer c
             """)
 
             all_computers = []
@@ -27,6 +28,7 @@ def computer_list(request):
                 computer.id = row['id']
                 computer.make = row['make']
                 computer.purchase_date = row['purchase_date']
+                computer.decommission_date = row['decommission_date']
                 # computer.department = row['department']
 
                 all_computers.append(computer)
