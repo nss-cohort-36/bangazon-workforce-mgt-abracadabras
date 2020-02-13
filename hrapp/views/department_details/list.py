@@ -5,10 +5,24 @@ from hrapp.models import Employee
 from ..connection import Connection
 
 
-# when we load the page, we need to get some data to show on that page (create_employee)
-# when we get the data back we need to format it somehow (get_employees)
+# when we load the page, we need to get some data to show on that page (get_employees)
+# when we get the data back we need to format it somehow (create_employee)
 # the point of all of this is so that it is viewable on the dom for those users
 
+
+# this is creating an employee from the SQL query- it's formatting the data that comes back 
+
+def create_employee(cursor,row):
+    department_employees = []
+    _row = sqlite3.Row(cursor,row)
+
+    emp = Employee()
+    emp.id = _row["id"]
+    emp.first_name = _row["first_name"]
+    emp.last_name = _row["last_name"]
+    
+    department_employees.append(emp)
+    return department_employees 
 
 # This function executes the fetch call (SQL query), it also calls create_employee function to format the rows
 
@@ -32,24 +46,7 @@ def get_employees(department_id):
         return db_cursor.fetchall()
 
 
-# this is creating an employee from the SQL query- it's formatting the data that comes back 
-
-def create_employee(cursor,row):
-    department_employees = []
-    _row = sqlite3.Row(cursor,row)
-
-    emp = Employee()
-    emp.id = _row["id"]
-    emp.first_name = _row["first_name"]
-    emp.last_name = _row["last_name"]
-    
-    department_employees.append(emp)
-
-    return department_employees
-
-
-
-# this is calling your template and your apssing the data to the template and be displayed on the DOM
+# this is calling your template and your passing the data to the template and be displayed on the DOM
 
 def department_details(request, department_id):
     # Checking to see what kind HTTP request is being made. if it's a GET request we're telling it to execute get-employees function above
