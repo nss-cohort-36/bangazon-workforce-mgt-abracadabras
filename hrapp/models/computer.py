@@ -21,5 +21,5 @@ class Computer(models.Model):
         verbose_name = ("Computer")
         verbose_name_plural = ("Computers")
 
-    def get_absolute_url(self):
-        return reverse("Computer_detail", kwargs={"pk": self.pk})
+    # def get_absolute_url(self):
+    #     return reverse("Computer_detail", kwargs={"pk": self.pk})

@@ -17,5 +17,5 @@ class Employee(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
-    def get_absolute_url(self):
-        return reverse("Employee_detail", kwargs={"pk": self.pk})
+    # def get_absolute_url(self):
+    #     return reverse("Employee_detail", kwargs={"pk": self.pk})

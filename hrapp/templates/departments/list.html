@@ -2,13 +2,14 @@
 
 {% block content %}
 <h1>Departments</h1>
-    <ol>
-    {% for departments in all_departments %}
+    
+    {% for department in all_departments %}
         {% comment %} <a href="{% url 'hrapp:departments' department.id %}"> {% endcomment %}
-        <li>{{ department.name }}</li>
+        <h2>Department Name:{{ department.name }}</h2>
         {% comment %} </a> {% endcomment %}
-        <li>{{ department.budget }}</li>
-        <li>{{department.number}}</li>
+        <p>Department Budget: {{ department.budget }}</p>
+        <br>
+        {% comment %} <li>{{department.number}}</li> {% endcomment %}
+  
     {% endfor %}
-    </ol>
 {% endblock content %}
