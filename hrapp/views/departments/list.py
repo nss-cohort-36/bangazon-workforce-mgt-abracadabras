@@ -6,7 +6,7 @@ from hrapp.models import Department
 from ..connection import Connection
 
 
-def list_departments(request):
+def department_list(request):
     with sqlite3.connect(Connection.db_path) as conn:
         conn.row_factory = sqlite3.Row
         db_cursor = conn.cursor()
