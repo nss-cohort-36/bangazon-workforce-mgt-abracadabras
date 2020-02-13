@@ -9,9 +9,9 @@
     <h1>Department Employees</h1>
 
     <ol>
-    {% for employee in employee %}
-        {% for e in employee%}
-            <li> {{e.first_name}} ({{e.last_name}} </li>
+    {% for taco in department_employees %}
+        {% for e in taco%}
+            <li> {{e.first_name}} {{e.last_name}} </li>
         {% endfor %}
     {% endfor %}
     </ol>
