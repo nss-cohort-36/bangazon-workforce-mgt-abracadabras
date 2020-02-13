@@ -3,13 +3,12 @@ from django.urls import reverse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from hrapp.models import Computer
-from hrapp.models import model_factory
 from ..connection import Connection
 
 
-def computer_list(computer_id):
+def get_computer(computer_id):
     with sqlite3.connect(Connection.db_path) as conn:
-        conn.row_factory = model_factory(Computer)
+        conn.row_factory = sqlite3.Row
         db_cursor = conn.cursor()
 
         db_cursor.execute("""
