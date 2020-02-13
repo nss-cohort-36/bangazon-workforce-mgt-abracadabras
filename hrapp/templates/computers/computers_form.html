@@ -1,12 +1,6 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Bangazon</title>
-  </head>
-  <body>
-    <h1>Inventory Computers</h1>
+{% extends 'shared/base.html' %}
+  {% block content %}
+    <h1>Add a New Computer</h1>
 
 
     <form action="{% url 'hrapp:computers' %}" method="post">
@@ -17,22 +11,15 @@
       </fieldset>
       <fieldset>
           <label for="purchase_date">Purchase Date: </label>
-          <input id="purchase_date" type="text" name="purchase_date">
+          <input id="purchase_date" type="date" name="purchase_date">
       </fieldset>
       <fieldset>
           <label for="decommission_date">Decommission Date: </label>
-          <input id="decommission_date" type="number" name="decommission_date">
+          <input id="decommission_date" type="date" name="decommission_date">
       </fieldset>
       <fieldset>
-          <label for="location">Computer: </label>
-          <select id="location" type="text" name="location">
-                {% for computer in all_computer %}
-                    <option value="{{ computer.id }}">{{ computer.make }}</option>
-                {% endfor %}
-          </select>
-      </fieldset>
-
       <input type="submit" value="Add It" />
     </form>
   </body>
 </html>
+{% endblock %}
