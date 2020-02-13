@@ -10,4 +10,5 @@ urlpatterns = [
     path('logout/', logout_user, name='logout'),
     path('employees/', employee_list, name='employee_list'),
     path('computers/', computer_list, name='computer_list'),
+    path('department/details/<int:department_id>/', department_details, name='department_details')
 ]
