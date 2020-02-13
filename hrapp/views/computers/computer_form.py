@@ -31,3 +31,4 @@ def computer_form(request):
         }
 
         return render(request, template, context)
+        context_instance=RequestContext(request)
