@@ -1,13 +1,14 @@
 from django.db import models
+from django.urls import reverse
 from .department import Department
 
 class Employee(models.Model):
 
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    start_date = models.DateField()
+    start_date = models.CharField(max_length=10)
     is_supervisor = models.BooleanField()
-    department = models.ForeignKey(Department, on_delete=models.CASCADE, null=True, blank=True)
+    department_id = models.ForeignKey(Department, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = ("Employee")
