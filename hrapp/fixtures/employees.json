@@ -1,25 +1,25 @@
 [
     {
-      "model": "hrapp.employees",
+      "model": "hrapp.employee",
       "pk": 1,
       "fields": {
         "first_name": "Luke",
         "last_name": "Jackson",
-        "start_date": "2020/02/12",
+        "start_date": "2020-02-12",
         "is_supervisor": true,
-        // "department.id": "accounting"
+        "department": "accounting"
       }
     },
 
     {
-        "model": "hrapp.employees",
+        "model": "hrapp.employee",
         "pk": 2,
         "fields": {
           "first_name": "Walter",
           "last_name": "Kurtz",
-          "start_date": "2020/02/11",
+          "start_date": "2020-02-11",
           "is_supervisor": false,
-        //   "department": "sales"
+          "department": "sales"
         }
       }
  
