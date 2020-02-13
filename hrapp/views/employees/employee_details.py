@@ -2,8 +2,7 @@ import sqlite3
 from django.urls import reverse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from hrapp.models import Employee, 
-from hrapp.models import model_factory
+from hrapp.models import Employee 
 from ..connection import Connection
 
 def get_employee(employee_id):
@@ -11,7 +10,7 @@ def get_employee(employee_id):
         conn.row_factory = model_factory(Employee)
         db_cursor = conn.cursor()
 
-         db_cursor.execute("""
+        db_cursor.execute("""
         SELECT
             e.id,
             e.first_name,
