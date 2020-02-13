@@ -4,13 +4,12 @@
 <h1>Computers</h1>
 
 <ol>
-{% for computer in all_computers %}
+{% for computer in computers %}
     <li>
         <p>{{ computer }}</p>
         Computer Make: {{computer.make}}
         Computer Purchase Date: {{computer.purchase_date}}
         Computer Decommission Date: {{computer.decommission_date}}
-
     </li>
 {% endfor %}
 </ol>
