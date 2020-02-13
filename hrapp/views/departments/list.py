@@ -2,12 +2,11 @@ import sqlite3
 # from django.urls import reverse
 from django.shortcuts import render, redirect
 # from django.contrib.auth.decorators import login_required
-from libraryapp.models import Book, Library, Librarian
-from libraryapp.models import model_factory
+from hrapp.models import Department
 from ..connection import Connection
 
 
-def list_departments(request):
+def department_list(request):
     with sqlite3.connect(Connection.db_path) as conn:
         conn.row_factory = sqlite3.Row
         db_cursor = conn.cursor()
@@ -16,22 +15,28 @@ def list_departments(request):
         select
             d.id,
             d.department_name,
-            d.budget
-            e.id
-        from department d
-        join employee e on employee.id = u.id
-        WHERE l.id = ?
-        """, (department_id,))
+            d.budget,
+            e.first_name
+        from hrapp_department d
+        join hrapp_employee e on e.department_id = d.id;
+        """)
 
-        return db_cursor.fetchone()
+        all_departments = []
+        dataset = db_cursor.fetchall()
 
-def department_details(request, department_id):
-    if request.method == 'GET':
-        department = get_department(department_id)
+        for row in dataset:
+            department = Department()
+            department.id = row["id"]
+            department.name = row["department_name"]
+            department.budget = row["budget"]
+            department.employee_name = row["first_name"]
 
-        template = 'departments/list.html'
-        context = {
-            'librarian': librarian
-        }
+            all_departments.append(department)
 
-        return render(request, template, context)
+    template_name = 'departments/list.html'
+
+    context = {
+        'all_departments': all_departments
+    }
+
+    return render(request, template_name, context)
