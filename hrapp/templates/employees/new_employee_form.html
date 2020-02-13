@@ -8,7 +8,7 @@
   <body>
     <h1>New Employee Form</h1>
 
-    <form action="{% url 'hrapp:books' %}" method="post">
+    <form action="{% url 'hrapp:employees' %}" method="post">
       {% csrf_token %}
         <fieldset>
             <label for="first_name">First Name: </label>

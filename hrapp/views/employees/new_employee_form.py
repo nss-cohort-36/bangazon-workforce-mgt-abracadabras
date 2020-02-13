@@ -1,9 +1,7 @@
 import sqlite3
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-# from libraryapp.models import Book
-# from libraryapp.models import Library
-# from libraryapp.models import model_factory
+from hrapp.models import Employee
+# from django.contrib.auth.decorators import login_required
 from ..connection import Connection
 
 
@@ -41,12 +39,12 @@ def get_employees():
 
 
 # @login_required
-# def add_employee_form(request):
+def add_employee_form(request):
 #     if request.method == 'GET':
-#         libraries = get_libraries()
-#         template = 'books/form.html'
-#         context = {
-#             'all_libraries': libraries
-#         }
+        employees = get_employees()
+        template = 'employees/new_employee_form.html'
+        context = {
+            'all_employees': employees
+        }
 
-#         return render(request, template, context)
+        return render(request, template, context)
