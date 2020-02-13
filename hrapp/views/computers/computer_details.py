@@ -18,7 +18,7 @@ def get_computer(computer_id):
            c.purchase_date,
            c.decommission_date
         FROM hrapp_computer c
-        WHEREc.id = ?
+        WHERE c.id = ?
         """, (computer_id,))
 
         return db_cursor.fetchone()
@@ -28,7 +28,7 @@ def computer_details(request, computer_id):
     if request.method == 'GET':
         computer = get_computer(computer_id)
 
-        template = 'computers/detail.html'
+        template = 'computers/computers_detail.html'
         context = {
             'computer': computer
         }
