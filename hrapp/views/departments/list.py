@@ -16,9 +16,9 @@ def department_list(request):
             d.id,
             d.department_name,
             d.budget,
-            e.first_name,
-        from department d
-        join employee e on e.department_id = d.id
+            e.first_name
+        from hrapp_department d
+        join hrapp_employee e on e.department_id = d.id;
         """)
 
         all_departments = []

@@ -1,6 +1,5 @@
 from django.urls import path
 from django.conf.urls import include
-from hrapp import views
 from .views import *
 
 app_name = 'hrapp'
