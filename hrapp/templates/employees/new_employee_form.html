@@ -8,7 +8,8 @@
   <body>
     <h1>New Employee Form</h1>
 
-    <form action="{% url 'hrapp:employees' %}" method="post">
+{% comment %} The URL below is for where to send the contents of the form below once details are entered into the fields and the submit button is clicked. {% endcomment %}
+    <form action="{% url 'hrapp:employee_list' %}" method="post">
       {% csrf_token %}
         <fieldset>
             <label for="first_name">First Name: </label>
@@ -22,6 +23,12 @@
             <label for="emp_start_date">Employment Start Date: </label>
             <input id="emp_start_date" type="number" name="emp_start_date">
         </fieldset>
+        <fieldset>Is the employee a supervisor?<br>
+            <input type="radio" id="yes" name="emp_is_supervisor" value="yes">
+            <label for="male">Yes</label><br>
+            <input type="radio" id="no" name="emp_is_supervisor" value="no">
+            <label for="male">No</label><br>
+        </fieldset>
         <fieldset>
           <label for="department">Select a Department: </label>
           <select id="department" type="text" name="department">
@@ -29,7 +36,7 @@
                     <option value="{{ department.id }}">{{ department.department_name }}</option>
                 {% endfor %}
           </select>
-      </fieldset>
+        </fieldset>
 
       <input type="submit" value="Add It" />
     </form>
