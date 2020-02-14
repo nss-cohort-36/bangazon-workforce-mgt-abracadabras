@@ -2,23 +2,32 @@
   {% block content %}
     <h1>Add a New Computer</h1>
 
-
-    <form action="{% url 'hrapp:computers' %}" method="post">
+  {% if computer.id is not None %}
+    <form action="{% url 'hrapp:computer' computer.id  %}" method="post">
+  {% else %}
+    <form action="{% url 'hrapp:computer_list' %}" method="post">
+  {% endif %}  
       {% csrf_token %}
       <fieldset>
           <label for="make">Make: </label>
-          <input id="make" type="text" name="make">
+          <input id="make" type="text" name="make" value={{computer.make}}>
       </fieldset>
       <fieldset>
           <label for="purchase_date">Purchase Date: </label>
-          <input id="purchase_date" type="date" name="purchase_date">
+          <input id="purchase_date" type="date" name="purchase_date" value={{computer.purchase_date}}>
       </fieldset>
       <fieldset>
           <label for="decommission_date">Decommission Date: </label>
-          <input id="decommission_date" type="date" name="decommission_date">
+          <input id="decommission_date" type="date" name="decommission_date" value={{computer.decommission_date}}>
       </fieldset>
       <fieldset>
-      <input type="submit" value="Add It" />
+
+      {% if computer.id is not None %}
+        <input type="hidden" name="actual_method" value="PUT">
+        <input type="submit" value="Update" />
+      {% else %}
+        <input type="submit" value="Add It" />
+      {% endif %}
     </form>
   </body>
 </html>
