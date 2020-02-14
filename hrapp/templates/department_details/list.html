@@ -7,11 +7,12 @@
   </head>
   <body>
     <h1>Department Employees</h1>
+      <h1>{{department_name}}</h1>
 
     <ol>
     {% for taco in department_employees %}
         {% for e in taco%}
-            <li> {{d.department_name}} {{e.first_name}} {{e.last_name}} </li>
+            <li> {{e.first_name}} {{e.last_name}} </li>
         {% endfor %}
     {% endfor %}
     </ol>
