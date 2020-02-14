@@ -4,9 +4,11 @@
 <h1>Departments</h1>
     
     {% for department in all_departments %}
-        {% comment %} <a href="{% url 'hrapp:departments' department.id %}"> {% endcomment %}
+        {% comment %} path('department/details/<int:department_id>/', department_details, name='department_details'), {% endcomment %}
+
+        <a href="{% url 'hrapp:department_details' department.id %}">
         <h2>Department Name:{{ department.name }}</h2>
-        {% comment %} </a> {% endcomment %}
+        </a>
         <p>Department Budget: {{ department.budget }}</p>
         <br>
         {% comment %} <li>{{department.number}}</li> {% endcomment %}
