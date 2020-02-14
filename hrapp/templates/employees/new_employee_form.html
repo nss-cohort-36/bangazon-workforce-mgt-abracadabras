@@ -8,6 +8,13 @@
   <body>
     <h1>New Employee Form</h1>
 
+    {% if employee.id is not None%}
+        <form action ="{% url 'hrapp:employee' employee.id%}" method="post">
+    {%else%}
+        <form action="{% url 'hrapp: employees'%}" method="post">
+    {%endif%}
+        {% csrf_token%}
+
     <form action="{% url 'hrapp:employees' %}" method="post">
       {% csrf_token %}
         <fieldset>
