@@ -10,9 +10,9 @@ urlpatterns = [
     path('employees/', employee_list, name='employees'),
     path('computers/', computer_list, name='computers'),
     path('computers/form', computer_form, name='computer_form'),
+    path('employees/form', add_employee_form, name='employees_form'),
     path('departments/', department_list, name='departments' ),
-    path('computers/<int:computer_id>/', computer_details, name='computer'),  
+    path('computers/<int:computer_id>/', computer_details, name='computer'),
     path('employees/<int:employee_id>/', employee_details, name='employee'),
     path('computers/<int:computer_id>/', computer_details, name='computer')
-    
 ]
