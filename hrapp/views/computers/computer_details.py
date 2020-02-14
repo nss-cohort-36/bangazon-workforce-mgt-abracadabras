@@ -53,4 +53,4 @@ def computer_details(request, computer_id):
                 WHERE id = ?
                 """, (computer_id,))
 
-            return redirect(reverse('hrapp:computers'))
+            return redirect(reverse('hrapp:computer_list'))

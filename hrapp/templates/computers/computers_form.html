@@ -5,7 +5,7 @@
   {% if computer.id is not None %}
     <form action="{% url 'hrapp:computer' computer.id  %}" method="post">
   {% else %}
-    <form action="{% url 'hrapp:computers' %}" method="post">
+    <form action="{% url 'hrapp:computer_list' %}" method="post">
   {% endif %}  
       {% csrf_token %}
       <fieldset>

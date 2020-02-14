@@ -25,10 +25,9 @@ def get_computer(computer_id):
 # @login_required
 def computer_form(request):
     if request.method == 'GET':
-        # computers = get_computers()
         template = 'computers/computers_form.html'
         context = {
-            'all_computers': computer
+        
         }
 
         return render(request, template, context)
