@@ -28,7 +28,7 @@ def computer_form(request):
         # computers = get_computers()
         template = 'computers/computers_form.html'
         context = {
-            'all_computers': computers
+            'all_computers': computer
         }
 
         return render(request, template, context)
