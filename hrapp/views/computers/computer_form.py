@@ -5,7 +5,7 @@ from hrapp.models import Computer
 from ..connection import Connection
 
 
-def get_computers():
+def get_computer(computer_id):
     with sqlite3.connect(Connection.db_path) as conn:
         conn.row_factory = sqlite3.Row
         db_cursor = conn.cursor()
@@ -17,14 +17,15 @@ def get_computers():
             c.purchase_date,
             c.decommission_date
             from hrapp_computer c
-        """)
+            WHERE c.id=?
+        """,(computer_id,)) 
 
-        return db_cursor.fetchall()
+        return db_cursor.fetchone()
 
 # @login_required
 def computer_form(request):
     if request.method == 'GET':
-        computers = get_computers()
+        # computers = get_computers()
         template = 'computers/computers_form.html'
         context = {
             'all_computers': computers
@@ -38,12 +39,12 @@ def computer_edit_form(request, computer_id):
 
     if request.method == 'GET':
         computer = get_computer(computer_id)
-        computers = get_computers()
+        # computers = get_computers()
 
-        template = 'computers/computers_edit_form.html'
+        template = 'computers/computers_form.html'
         context = {
             'computer': computer,
-            'all_computers': computers
+            # 'all_computers': computers
         }
 
         return render(request, template, context)
