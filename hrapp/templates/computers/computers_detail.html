@@ -9,5 +9,15 @@
     <h1>Make: {{ computer.make }}</h1>
     <h2>Purchase Date: {{ computer.purchase_date }}</h2>
     <div>Decommission Date: {{ computer.decommission_date }}</div>
+  <form action="{% url 'hrapp:computer' computer.id %}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="actual_method" value="DELETE">
+    <button>Delete</button>
+  </form>
+  <form action="{% url 'hrapp:computer_edit_form' computer.id %}" method="GET">
+    {% csrf_token %}
+    <input type="hidden" name="actual_method" value="EDIT">
+    <button>Edit</button>
+  </form>
   </body>
 </html>
