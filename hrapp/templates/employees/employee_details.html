@@ -11,7 +11,7 @@
     <div>{{ employee.is_supervisor }}</div>
     <div>{{ employee.department_id }}</div>
     <section>
-      <form action="{% url 'hrapp:employee_edit_form' employee.id %}" method="GET">
+      <form action="{% url 'hrapp:edit_employee_form' employee.id %}" method="GET">
           {% csrf_token %}
           <button>Edit</button>
       </form>
