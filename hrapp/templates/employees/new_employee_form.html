@@ -11,11 +11,11 @@
     {% if employee.id is not None%}
         <form action ="{% url 'hrapp:employee' employee.id%}" method="post">
     {%else%}
-        <form action="{% url 'hrapp: employees'%}" method="post">
+        <form action ="{% url 'hrapp:employees'%}" method="post">
     {%endif%}
         {% csrf_token%}
 
-    <form action="{% url 'hrapp:employees' %}" method="post">
+    <form action ="{% url 'hrapp: employees' %}" method="post">
       {% csrf_token %}
         <fieldset>
             <label for="first_name">First Name: </label>
