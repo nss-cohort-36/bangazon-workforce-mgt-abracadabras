@@ -1,0 +1,11 @@
+[
+    {
+    "model": "hrapp.deparment",
+    "pk": 1,
+    "fields": {
+        "department_name": "TestDept",
+        "budget": "1000"
+    }
+    }
+
+]
