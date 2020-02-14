@@ -2,8 +2,11 @@
   {% block content %}
     <h1>Add a New Computer</h1>
 
-
+  {% if computer.id is not None %}
+    <form action="{% url 'hrapp:computer' computer.id  %}" method="post">
+  {% else %}
     <form action="{% url 'hrapp:computers' %}" method="post">
+  {% endif %}  
       {% csrf_token %}
       <fieldset>
           <label for="make">Make: </label>
@@ -18,7 +21,13 @@
           <input id="decommission_date" type="date" name="decommission_date">
       </fieldset>
       <fieldset>
+
+      {% if computer.id is not None %}
+        <input type="hidden" name="actual_method" value="PUT">
+        <input type="submit" value="Update" />
+      {% else %}
       <input type="submit" value="Add It" />
+      {% endif %}
     </form>
   </body>
 </html>

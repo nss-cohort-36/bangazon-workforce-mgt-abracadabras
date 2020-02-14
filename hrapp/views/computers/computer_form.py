@@ -32,3 +32,18 @@ def computer_form(request):
 
         return render(request, template, context)
         context_instance=RequestContext(request)
+        
+# @login_required
+def computer_edit_form(request, computer_id):
+
+    if request.method == 'GET':
+        computer = get_computer(computer_id)
+        computers = get_computers()
+
+        template = 'computers/computers_edit_form.html'
+        context = {
+            'computer': computer,
+            'all_computers': computers
+        }
+
+        return render(request, template, context)

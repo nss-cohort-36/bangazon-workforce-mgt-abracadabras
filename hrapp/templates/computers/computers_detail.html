@@ -13,6 +13,11 @@
     {% csrf_token %}
     <input type="hidden" name="actual_method" value="DELETE">
     <button>Delete</button>
-</form>
+  </form>
+  <form action="{% url 'hrapp:computer_edit_form' computer.id %}" method="GET">
+    {% csrf_token %}
+    <input type="hidden" name="actual_method" value="EDIT">
+    <button>Edit</button>
+  </form>
   </body>
 </html>
