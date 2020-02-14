@@ -3,6 +3,7 @@ from django.shortcuts import render
 from hrapp.models import Employee, Department
 # from django.contrib.auth.decorators import login_required
 from ..connection import Connection
+from .employee_details import get_employee
 
 
 # Change this to departments to give user choice to choose a department
@@ -39,6 +40,19 @@ def add_employee_form(request):
         # The template expects a dictionary of data
         context = {
             'all_department': departments
+        }
+
+        return render(request, template, context)
+
+# @login_required
+def employee_edit_form(request, employee_id):
+    if request.method == 'GET':
+        employee = get_employee(employee_id)
+        departments = get_departments()
+        template = 'employees/edit_employee_form.html'
+        context = {
+            'employee': employee,
+            'all_departments': departments
         }
 
         return render(request, template, context)
